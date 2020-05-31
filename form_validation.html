@@ -1,0 +1,102 @@
+<html>
+<head>
+<style>
+span{
+ color:red;
+ text-decoration:none;
+  }
+</style>
+<script>
+function validate()
+ {
+   document.getElementById("1").innerHTML="";
+   document.getElementById("2").innerHTML="";
+   document.getElementById("3").innerHTML="";
+   document.getElementById("4").innerHTML="";
+   document.getElementById("5").innerHTML="";
+   document.getElementById("6").innerHTML="";
+   document.getElementById("7").innerHTML="";
+   document.getElementById("8").innerHTML="";
+   document.getElementById("9").innerHTML="";
+    var isValid=true;
+	    var a;
+    a=document.Reg.nm.value;
+    if(a==""||a==null||!isNaN(a))
+     {
+     document.getElementById("1").innerHTML="*Enter a valid Name";
+      isValid=false;
+	       }
+	 var u=document.Reg.un.value;
+	 if(u==null||u=="")
+	   {
+document.getElementById("2").innerHTML="*Enter valid User Name";
+        isValid=false; 
+		}
+	 var email=/^\w+([\._]?\w+)*@\w*(\.\w{2,3})$/;
+	 var e=document.Reg.em.value;
+	 if(!e.match(email))
+	   {
+	    document.getElementById("3").innerHTML="*Enter valid mail id";
+        isValid=false; 
+		}
+	 var id=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+	 var p=document.Reg.pass.value;
+	 if(!p.match(id))
+	  {
+	    document.getElementById("4").innerHTML="*Enter a valid password";
+        isValid=false;
+	  }
+	  var p2=document.Reg.pass2.value;
+         if(p2==null||p2=="")
+           {
+            document.getElementById("5").innerHTML="*Password shouldn't be blank";
+        isValid=false;
+            }
+	  if(p!=p2)
+	   {
+	    document.getElementById("5").innerHTML="*Password should be same";
+        isValid=false;
+	   }
+	  var br=document.Reg.branch.value;
+	  if(!isNaN(br)||br==null)
+	   {
+	     document.getElementById("6").innerHTML="*Enter a valid branch";
+         isValid=false;
+	   }
+	  var y=document.Reg.year.value;
+	  if(isNaN(y)||y=="")
+	   {
+	     document.getElementById("7").innerHTML="*Enter a valid year";
+         isValid=false;
+	   }
+   var s=document.Reg.sec.value;
+	   if(!isNaN(s)||s.length!=1)
+	   {
+	     document.getElementById("8").innerHTML="*Enter a valid section";
+         isValid=false;
+	   }
+	  var mobile=document.Reg.mn.value;
+	  if(mobile==""||isNaN(mobile)||mobile.length!=10)
+	   {
+	     document.getElementById("9").innerHTML="*Enter a valid mobile number";
+         isValid=false;
+	   }
+	   return isValid;
+ }      
+</script>       
+</head>
+<body>
+<form name="Reg" action="#" onsubmit="return validate()">
+Name*:<input type="text" name="nm" ><br><span id="1"></span><br><br>
+User Name*:<input type="text" name="un"><br><span id="2"></span><br><br>
+E-mail*:<input type="text" name="em" ><br><span id="3"></span><br><br>
+Password*:<input type="password" name="pass"><br><span id="4"></span><br><br>
+Re-enter Password*:<input type="password" name="pass2"><br><span id="5"></span><br><br>
+Branch*:<input type="text" name="branch"><br><span id="6"></span><br><br>
+Year*:<input type="text" name="year"><br><span id="7"></span><br><br>
+Section*:<input type="text" name="sec"><br><span id="8"></span><br><br>
+Mobile No*:<input type="text" name="mn"><br><span id="9"></span><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
